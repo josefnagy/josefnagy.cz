@@ -1,13 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@100;300;400&family=Raleway:wght@700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 html,
 body {
+  --background: #191113;
+  --white: #FCFCFC;
+  --primary: #65743A;
+  --lg: #E5E5E5;
+  --dg: #664E54;
+  --warning: #FC3434;
+
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  height: 100%;
+
+  font-family: 'Darker Grotesque', 'sans-serif';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--white);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Raleway', 'sans-serif';
 }
 
 a {
@@ -17,4 +40,9 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.header {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--white);
 }

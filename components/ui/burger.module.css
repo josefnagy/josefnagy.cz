@@ -1,0 +1,49 @@
+.burger{
+  background: transparent;
+  border: 0;
+}
+
+.burger:focus {
+  outline: none;
+}
+
+.burger {
+  position: relative;
+  width: 22px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.burger:hover span {
+  background: #664E54;
+}
+
+.burger span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  transition: all 0.2s;
+  background: #FCFCFC;
+}
+.burger span:nth-child(2) {
+  top: 6px;
+}
+.burger span:last-child {
+  top: 12px;
+}
+
+.navOpen span:first-child, .navOpen span:last-child {
+  top: 8px;
+}
+.navOpen span:first-child {
+  transform: rotate(45deg);
+}
+.navOpen span:last-child {
+  transform: rotate(-45deg);
+}
+.navOpen span:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+}
