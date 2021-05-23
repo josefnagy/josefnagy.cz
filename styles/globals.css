@@ -106,3 +106,20 @@ a {
   pointer-events: none;
   mix-blend-mode: difference;
 }
+
+.hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+
+  width: 0;
+  height: 100%;
+  transition: width 1s;
+  border-bottom: 1px solid var(--white);
+}
+
+.hover:hover::after{
+  width: 100%;
+}
