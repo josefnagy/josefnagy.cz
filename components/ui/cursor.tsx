@@ -15,23 +15,18 @@ const Cursor = () => {
     })
 
     function onMouseEnter() {
-      cursor ? (cursor.style.width = '36px') : ''
-      cursor ? (cursor.style.height = '36px') : ''
+      cursor ? (cursor.style.transform = `scale(3)`) : ''
       shadow ? (shadow.style.opacity = '0') : ''
     }
     function onMouseLeave() {
-      cursor ? (cursor.style.width = '12px') : ''
-      cursor ? (cursor.style.height = '12px') : ''
+      cursor ? (cursor.style.transform = `scale(1)`) : ''
       shadow ? (shadow.style.opacity = '1') : ''
     }
 
     function onMouseMove(e: MouseEvent) {
-      // cursor ? (cursor.style.left = `${e.clientX}px`) : ''
-      // cursor ? (cursor.style.top = `${e.clientY}px`) : ''
-      cursor ? (cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px )`) : ''
+      cursor ? (cursor.style.left = `${e.clientX - 6}px`) : ''
+      cursor ? (cursor.style.top = `${e.clientY - 6}px`) : ''
 
-      // shadow ? (shadow.style.left = `${e.clientX}px`) : ''
-      // shadow ? (shadow.style.top = `${e.clientY}px`) : ''
       shadow ? (shadow.style.transform = `translate(${e.clientX}px, ${e.clientY}px )`) : ''
     }
   }, [])
