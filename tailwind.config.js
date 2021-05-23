@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -13,6 +14,7 @@ module.exports = {
         primary: '#65743A',
         lg: '#E5E5E5',
         dg: '#664E54',
+        text: "#888888",
         warning: '#FC3434',
       },
       fontSize: {
