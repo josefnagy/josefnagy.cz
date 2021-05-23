@@ -7,9 +7,9 @@ import Logo from './logo'
 const MainNavigation: NextPage = () => {
   return (
     <>
-      <header className="mx-4 pt-10 w-full flex flex-row justify-between flex-initial fixed">
+      <header className="px-4 pt-10 w-full flex flex-row justify-between flex-initial fixed">
         <Link href="/">
-          <a className="ml-28">
+          <a className="ml-28 logo">
             <Logo />
           </a>
         </Link>
