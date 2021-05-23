@@ -48,8 +48,7 @@ a {
 * {
   box-sizing: border-box;
   /* cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23FF0000" height="10" viewBox="0 0 10 10" width="10"><circle fill="gray" cx="4" cy="4" r="4" /></svg>'), auto; */
-  /* cursor: none; */
-
+  cursor: none;
 }
 
 .header {
@@ -89,8 +88,8 @@ a {
 .shadow {
   display: block;
   position: fixed;
-  top: -6px;
-  left: -6px;
+  top: -12px;
+  left: -12px;
   width: 12px;
   height: 12px;
   background-color: var(--dg);
