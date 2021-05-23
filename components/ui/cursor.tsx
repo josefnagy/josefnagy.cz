@@ -7,6 +7,8 @@ const Cursor = () => {
     const shadow: HTMLDivElement | null = document.querySelector('.shadow')
     const links: NodeListOf<HTMLAnchorElement> | null = document.querySelectorAll('a')
 
+    let mouseCorrection = 12
+
     document.addEventListener('mousemove', onMouseMove)
 
     links?.forEach((link) => {
@@ -17,17 +19,23 @@ const Cursor = () => {
     function onMouseEnter() {
       cursor ? (cursor.style.transform = `scale(3)`) : ''
       shadow ? (shadow.style.opacity = '0') : ''
+      console.log('entered')
     }
     function onMouseLeave() {
       cursor ? (cursor.style.transform = `scale(1)`) : ''
       shadow ? (shadow.style.opacity = '1') : ''
+      mouseCorrection = 6
     }
 
     function onMouseMove(e: MouseEvent) {
       cursor ? (cursor.style.left = `${e.clientX - 6}px`) : ''
       cursor ? (cursor.style.top = `${e.clientY - 6}px`) : ''
 
-      shadow ? (shadow.style.transform = `translate(${e.clientX + 6}px, ${e.clientY + 6}px )`) : ''
+      shadow
+        ? (shadow.style.transform = `translate(${e.clientX - mouseCorrection}px, ${
+            e.clientY - mouseCorrection
+          }px )`)
+        : ''
     }
   }, [])
 
