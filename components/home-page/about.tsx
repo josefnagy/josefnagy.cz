@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 const About: NextPage = () => {
   return (
     <>
-      <section className="grid place-items-center h-1/3 px-4" id="about">
+      <section className="grid place-items-center h-1/4 px-4" id="about">
         <div className="w-2/3">
           <p className="text-5xl font-thin text-center leading-tight">
             I am a conductor with a passion for{' '}

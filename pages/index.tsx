@@ -5,6 +5,7 @@ import Hero from '../components/home-page/hero'
 import Projects from '../components/home-page/projects'
 import LatestNews from '../components/home-page/latest-news'
 import Contact from '../components/home-page/contact'
+import Footer from '../components/layout/footer'
 
 const IndexPage: NextPage = () => {
   return (
@@ -14,6 +15,7 @@ const IndexPage: NextPage = () => {
       <Projects />
       <LatestNews />
       <Contact />
+      <Footer />
     </main>
   )
 }

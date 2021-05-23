@@ -4,7 +4,7 @@ import { NextPage } from 'next'
 const Contact: NextPage = () => {
   return (
     <>
-      <section className="grid place-items-center h-1/3 px-4" id="about">
+      <section className="grid place-items-center h-auto px-4" id="contact">
         <div className="w-2/3">
           <h3 className="uppercase mb-20">- Contact</h3>
           <h2 className="text-7xl text-center">

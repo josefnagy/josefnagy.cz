@@ -4,7 +4,7 @@ import Link from 'next/link'
 const LatestNews: NextPage = () => {
   return (
     <>
-      <section className="grid place-items-center h-1/3 px-4" id="about">
+      <section className="grid place-items-center h-1/4 px-4" id="latest-news">
         <div className="w-2/3">
           <h3 className="uppercase mb-20">- Latest News</h3>
           <div className="flex justify-between">
