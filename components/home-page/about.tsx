@@ -1,5 +1,7 @@
 import { NextPage } from 'next'
 
+import styles from './about.module.css'
+
 const About: NextPage = () => {
   return (
     <>
@@ -8,11 +10,17 @@ const About: NextPage = () => {
           I am a conductor with a passion for{' '}
           <span className="text-primary font-bold">Web Development</span>, hiking, TV shows and
           bunch of other stuff. I live in Ostrava. Let’s have a look at my{' '}
-          <a href="#projects" className="text-primary font-bold hover:text-white hover:underline">
+          <a
+            href="#projects"
+            className={`transition-colors duration-300 text-primary font-bold hover:text-white relative ${styles.hover}`}
+          >
             work
           </a>{' '}
           or You can{' '}
-          <a href="#projects" className="text-primary font-bold hover:text-white hover:underline">
+          <a
+            href="#projects"
+            className={`transition-colors duration-300 text-primary font-bold hover:text-white relative ${styles.hover}`}
+          >
             contact me
           </a>
           .

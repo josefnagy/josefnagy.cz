@@ -20,7 +20,8 @@ module.exports = {
       },
       lineHeight: {
         'heading': '11.5rem'
-      }
+      },
+
     },
   },
   variants: {

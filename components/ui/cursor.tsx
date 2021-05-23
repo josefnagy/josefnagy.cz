@@ -6,20 +6,25 @@ const Cursor = () => {
     const cursor: HTMLDivElement | null = document.querySelector('.cursor')
     const shadow: HTMLDivElement | null = document.querySelector('.shadow')
     const links: NodeListOf<HTMLAnchorElement> | null = document.querySelectorAll('a')
+    const buttons: NodeListOf<HTMLButtonElement> | null = document.querySelectorAll('button')
 
     let mouseCorrection = 12
 
     document.addEventListener('mousemove', onMouseMove)
 
-    links?.forEach((link) => {
-      link.addEventListener('mouseenter', onMouseEnter)
-      link.addEventListener('mouseleave', onMouseLeave)
-    })
+    function addMouseHoverListeners(nl: NodeListOf<HTMLAnchorElement | HTMLButtonElement>) {
+      nl?.forEach((element) => {
+        element.addEventListener('mouseenter', onMouseEnter)
+        element.addEventListener('mouseleave', onMouseLeave)
+      })
+    }
+
+    addMouseHoverListeners(links)
+    addMouseHoverListeners(buttons)
 
     function onMouseEnter() {
       cursor ? (cursor.style.transform = `scale(3)`) : ''
       shadow ? (shadow.style.opacity = '0') : ''
-      console.log('entered')
     }
     function onMouseLeave() {
       cursor ? (cursor.style.transform = `scale(1)`) : ''
