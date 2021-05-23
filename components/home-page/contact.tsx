@@ -40,7 +40,7 @@ const Contact: NextPage = () => {
                 <span className="text-warning mx-auto text-xl mb-2">Some error message</span>
               </div>
               <textarea
-                rows="5"
+                rows={5}
                 className="w-full bg-transparent ring ring-1 ring-white text-xl pl-2 pt-1 pb-2 tracking-wide focus:outline-none focus:ring-2 focus:ring-primary focus:border-none"
               />
             </label>
