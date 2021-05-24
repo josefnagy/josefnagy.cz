@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 
 import Burger from '../ui/burger'
 import Logo from './logo'
+import { useState } from 'react'
+import Menu from '../ui/menu'
 
 const header = {
   start: {
@@ -22,22 +24,27 @@ const header = {
 }
 
 const MainNavigation: NextPage = () => {
+  const [isMenuOpened, setIsMenuOpened] = useState(false)
+
   return (
     <>
       <motion.header
-        className="inline-block px-4 pt-10 w-full flex flex-row justify-between flex-initial fixed z-20"
+        className="relative px-4 w-full flex flex-row justify-between flex-initial fixed z-20"
         variants={header}
         initial="start"
         animate="end"
       >
-        <Link href="/">
-          <a className="ml-28 logo z-30">
-            <Logo />
-          </a>
-        </Link>
-        <nav className="self-center grid place-items-center mr-28">
-          <Burger />
-        </nav>
+        <Menu isMenuOpened={isMenuOpened} />
+        <div className="pt-10 w-full inline-block flex flex-row justify-between flex-initial">
+          <Link href="/">
+            <a className="ml-28 logo z-30">
+              <Logo />
+            </a>
+          </Link>
+          <nav className="self-end grid place-items-center mr-28 mb-1">
+            <Burger isMenuOpened={isMenuOpened} setIsMenuOpened={setIsMenuOpened} />
+          </nav>
+        </div>
       </motion.header>
     </>
   )

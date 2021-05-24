@@ -18,7 +18,8 @@ module.exports = {
         warning: '#FC3434',
       },
       fontSize: {
-        'header': '10rem'
+        'header': '10rem',
+        'menuHeader': '15rem'
       },
       lineHeight: {
         'heading': '11.5rem'

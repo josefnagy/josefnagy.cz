@@ -1,13 +1,18 @@
-import { NextPage } from 'next'
 import { useRef } from 'react'
 
 import classes from './burger.module.css'
 
-const Burger: NextPage = () => {
+interface Props {
+  isMenuOpened: boolean
+  setIsMenuOpened: (isMenuOpened: boolean) => void
+}
+
+const Burger: React.FC<Props> = ({ isMenuOpened, setIsMenuOpened }) => {
   const menuButtonRef = useRef<HTMLButtonElement>(null)
 
   function handleMenuClick() {
     menuButtonRef.current?.classList.toggle(classes.navOpen)
+    setIsMenuOpened(!isMenuOpened)
   }
 
   return (
