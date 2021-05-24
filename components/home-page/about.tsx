@@ -69,9 +69,8 @@ const About: NextPage = () => {
               with a passion for
             </motion.span>{' '}
             <motion.span variants={text} className="text-primary font-bold">
-              Web Development
-            </motion.span>
-            ,{' '}
+              Web Development,
+            </motion.span>{' '}
             <motion.span variants={text} className="inline-block">
               hiking, tv shows{' '}
             </motion.span>
