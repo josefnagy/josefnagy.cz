@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
-import Burger from '../ui/burger'
 import { motion } from 'framer-motion'
 
+import Burger from '../ui/burger'
 import Logo from './logo'
 
 const header = {
