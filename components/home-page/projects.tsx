@@ -12,22 +12,24 @@ const Projects: NextPage = () => {
   function setOpacity(div: MutableRefObject<HTMLDivElement | undefined>, op: string) {
     if (div.current) div.current.style.opacity = op
   }
+
   //* e: { target: HTMLDivElement } */
   //* this is cool, i tryed e: MouseEvent and other stuff but this works like charm
+
   function onMouseEnter(e: { target: HTMLDivElement }) {
     if (e.target) {
-      e.target.id === 'workcal' ? setOpacity(workcal, '0,2') : ''
-      e.target.id === 'recipe' ? setOpacity(recipe, '0,2') : ''
-      e.target.id === 'portfolio' ? setOpacity(portfolio, '0,2') : ''
-      e.target.id === 'aracolor' ? setOpacity(aracolor, '0,2') : ''
+      e.target.id === 'workcal' ? setOpacity(workcal, '0.2') : ''
+      e.target.id === 'recipe' ? setOpacity(recipe, '0.2') : ''
+      e.target.id === 'portfolio' ? setOpacity(portfolio, '0.2') : ''
+      e.target.id === 'aracolor' ? setOpacity(aracolor, '0.2') : ''
     }
   }
 
   function onMouseLeave(e: { target: HTMLDivElement }) {
-    e.target.id === 'workcal' ? setOpacity(workcal, '1') : ''
-    e.target.id === 'recipe' ? setOpacity(recipe, '1') : ''
-    e.target.id === 'portfolio' ? setOpacity(portfolio, '1') : ''
-    e.target.id === 'aracolor' ? setOpacity(aracolor, '1') : ''
+    e.target.id === 'workcal' ? setOpacity(workcal, '0') : ''
+    e.target.id === 'recipe' ? setOpacity(recipe, '0') : ''
+    e.target.id === 'portfolio' ? setOpacity(portfolio, '0') : ''
+    e.target.id === 'aracolor' ? setOpacity(aracolor, '0') : ''
   }
 
   return (
@@ -102,7 +104,7 @@ const Projects: NextPage = () => {
                 <span className="text-sm mr-1 text-dg mt-1">02</span>
                 <Link href="/project">
                   <a
-                    className="hover relative hover:text-white"
+                    className="hover relative hover:text-white z-30"
                     onMouseEnter={onMouseEnter}
                     onMouseLeave={onMouseLeave}
                     id="recipe"
@@ -115,7 +117,7 @@ const Projects: NextPage = () => {
                 <span className="text-sm mr-1 text-dg mt-1">03</span>
                 <Link href="/project">
                   <a
-                    className="hover relative hover:text-white"
+                    className="hover relative hover:text-white z-30"
                     onMouseEnter={onMouseEnter}
                     onMouseLeave={onMouseLeave}
                     id="portfolio"
@@ -128,7 +130,7 @@ const Projects: NextPage = () => {
                 <span className="text-sm mr-1 text-dg mt-1">04</span>
                 <Link href="/project">
                   <a
-                    className="hover relative hover:text-white"
+                    className="hover relative hover:text-white z-30"
                     onMouseEnter={onMouseEnter}
                     onMouseLeave={onMouseLeave}
                     id="aracolor"
