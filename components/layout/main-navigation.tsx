@@ -34,7 +34,7 @@ const MainNavigation: NextPage = () => {
         initial="start"
         animate="end"
       >
-        <Menu isMenuOpened={isMenuOpened} />
+        <Menu setIsMenuOpened={setIsMenuOpened} isMenuOpened={isMenuOpened} />
         <div className="w-full">
           {/* <div className="pt-10 w-full inline-block flex flex-row justify-between flex-initial"> */}
           <Link href="/">

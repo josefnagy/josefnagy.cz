@@ -7,6 +7,7 @@ import { Portal } from 'react-portal'
 
 interface Props {
   isMenuOpened: boolean
+  setIsMenuOpened: (isMenuOpened: boolean) => void
 }
 
 const overlay = {
@@ -23,10 +24,15 @@ const overlay = {
 
 const heading = {
   from: { y: '-500px', opacity: 0, transition: { type: 'tween', duration: 0.5 } },
-  to: { y: 0, opacity: 1, transition: { delay: 1.5, type: 'tween', duration: 1.5 } },
+  to: { y: 0, opacity: 1, transition: { delay: 0.5, type: 'tween', duration: 1 } },
 }
 
-const Menu: React.FC<Props> = ({ isMenuOpened }) => {
+const items = {
+  from: { transition: { scale: 2 } },
+  to: { transition: { scale: 0.5 } },
+}
+
+const Menu: React.FC<Props> = ({ isMenuOpened, setIsMenuOpened }) => {
   const animation = useAnimation()
   const [showMenu, setShowMenu] = useState(false)
 
@@ -34,20 +40,22 @@ const Menu: React.FC<Props> = ({ isMenuOpened }) => {
     if (isMenuOpened) {
       setShowMenu(true)
       document.body.style.overflow = 'hidden'
-
-      // menu.current.style.top = String(`${window.scrollY}px`)
       animation.start('end')
       animation.start('to')
     } else {
       animation.start('from')
       animation.start('start').then(() => {
         setShowMenu(false)
-        console.log('closed')
       })
 
       document.body.style.overflow = 'auto'
     }
   }, [animation, isMenuOpened, showMenu])
+
+  const handleMenuClick = () => {
+    setShowMenu(false)
+    setIsMenuOpened(false)
+  }
 
   return (
     <>
@@ -72,30 +80,34 @@ const Menu: React.FC<Props> = ({ isMenuOpened }) => {
               <div className="">
                 <nav>
                   <ul className="w-full max-w-screen-lg mx-auto flex justify-between flex-wrap">
-                    <li className="max-w-lg w-47 mb-36">
+                    <motion.li className="max-w-lg w-47 mb-36" variants={items} initial="from" animate={animation}>
                       <Link href="/">
-                        <a>
+                        <a
+                          onClick={() => {
+                            handleMenuClick()
+                          }}
+                        >
                           <span>01. Home</span>
                           <Image src="/images/site/menu/hero.png" width={500} height={350} quality={100} />
                         </a>
                       </Link>
-                    </li>
-                    <li className="max-w-lg w-47">
+                    </motion.li>
+                    <motion.li className="max-w-lg w-47" variants={items} initial="from" animate={animation}>
                       <Link href="/">
                         <a>
                           <span>02. Projects</span>
                           <Image src="/images/site/menu/projects.png" width={500} height={350} quality={100} />
                         </a>
                       </Link>
-                    </li>
-                    <li className="max-w-lg w-47 pb-40">
+                    </motion.li>
+                    <motion.li className="max-w-lg w-47 pb-40" variants={items} initial="from" animate={animation}>
                       <Link href="/">
                         <a>
                           <span>03. Contact</span>
                           <Image src="/images/site/menu/contact.png" width={500} height={350} quality={100} />
                         </a>
                       </Link>
-                    </li>
+                    </motion.li>
                   </ul>
                 </nav>
               </div>
