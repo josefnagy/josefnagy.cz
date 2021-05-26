@@ -47,3 +47,7 @@
   opacity: 0;
   visibility: hidden;
 }
+
+.navOpen span {
+  background: var(--background);
+}

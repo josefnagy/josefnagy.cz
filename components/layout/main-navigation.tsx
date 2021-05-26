@@ -29,19 +29,26 @@ const MainNavigation: NextPage = () => {
   return (
     <>
       <motion.header
-        className="relative px-4 w-full flex flex-row justify-between flex-initial fixed z-20"
+        className="transition-all duration-500 relative px-4 w-full flex flex-row justify-between flex-initial fixed z-20"
         variants={header}
         initial="start"
         animate="end"
       >
         <Menu isMenuOpened={isMenuOpened} />
-        <div className="pt-10 w-full inline-block flex flex-row justify-between flex-initial">
+        <div className="w-full">
+          {/* <div className="pt-10 w-full inline-block flex flex-row justify-between flex-initial"> */}
           <Link href="/">
-            <a className="ml-28 logo z-30">
+            <a
+              className={`absolute logo z-30 top-t1 left-t2 lg:top-t3 xl:left-t7 ${
+                isMenuOpened ? 'opacity-0' : ''
+              }`}
+            >
+              {/* <a className="ml-28 logo z-30"> */}
               <Logo />
             </a>
           </Link>
-          <nav className="self-end grid place-items-center mr-28 mb-1">
+          <nav className="absolute top-t1 right-t2 mt-3 mr-1 lg:top-t3 xl:right-t7">
+            {/* <nav className="self-end grid place-items-center mr-28 mb-1"> */}
             <Burger isMenuOpened={isMenuOpened} setIsMenuOpened={setIsMenuOpened} />
           </nav>
         </div>

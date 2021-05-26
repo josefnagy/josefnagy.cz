@@ -40,7 +40,7 @@ const Hero: NextPage = () => {
     <>
       <section className="h-screen grid place-items-center uppercase px-4" id="hero">
         <motion.h1
-          className="relative text-header header text-background leading-heading text-center font-extrabold tracking-wider"
+          className="relative text-header header text-background leading-tight text-center font-extrabold tracking-wider"
           variants={hero}
           initial="hidden"
           animate="visible"
@@ -50,8 +50,7 @@ const Hero: NextPage = () => {
             variants={text}
           >
             Hello,
-          </motion.span>
-          <br />{' '}
+          </motion.span>{' '}
           <motion.span className="inline-block" variants={text}>
             <span className="inline-block transition-colors duration-500 hover:text-white">I</span>{' '}
             <span className="inline-block transition-colors duration-500 hover:text-white">am</span>{' '}
@@ -59,7 +58,6 @@ const Hero: NextPage = () => {
               Josef.
             </span>
           </motion.span>
-          <br />
           <motion.span
             className="inline-block transition-colors duration-500 hover:text-white"
             variants={text}

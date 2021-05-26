@@ -18,13 +18,26 @@ module.exports = {
         warning: '#FC3434',
       },
       fontSize: {
-        'header': '10rem',
-        'menuHeader': '15rem'
+        'header': ['10vw'],
+        'menuHeader': '12vw'
       },
       lineHeight: {
         'heading': '11.5rem'
       },
-
+      inset: {
+        'rp': '-8vw',
+        'tp': '6vw',
+        't1': '1vw',
+        't2': '2vw',
+        't3': '3vw',
+        't4': '4vw',
+        't5': '5vw',
+        't6': '6vw',
+        't7': '7vw',
+      },
+      width: {
+        '47': '47%'
+      }
     },
   },
   variants: {
