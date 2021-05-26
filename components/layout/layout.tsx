@@ -6,7 +6,7 @@ import MainNavigation from './main-navigation'
 const Layout: NextPage = (props) => {
   return (
     <>
-      <div className="h-full flex flex-col">
+      <div className="h-full flex flex-col" id="main">
         <MainNavigation />
         {props.children}
         <Background />

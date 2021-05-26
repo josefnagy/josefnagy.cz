@@ -52,14 +52,7 @@ const About: NextPage = () => {
     <>
       <section className="grid place-items-center h-1/4 px-4" id="about">
         <div className="w-2/3">
-          <motion.p
-            variants={container}
-            ref={ref}
-            initial="start"
-            animate={animation}
-            exit="exit"
-            className="text-5xl font-thin text-center leading-tight"
-          >
+          <motion.p variants={container} ref={ref} initial="start" animate={animation} exit="exit" className="text-5xl font-thin text-center leading-tight">
             <motion.span variants={text} className="inline-block">
               I am a conductor
             </motion.span>
@@ -88,10 +81,7 @@ const About: NextPage = () => {
             </motion.span>{' '}
             <motion.span variants={text} className="inline-block">
               at my{' '}
-              <a
-                href="#projects"
-                className={`inline-block transition-colors duration-300 text-primary font-bold hover:text-white relative hover`}
-              >
+              <a href="#projects" className={`inline-block transition-colors duration-300 text-primary font-bold hover:text-white relative hover`}>
                 work,
               </a>
             </motion.span>

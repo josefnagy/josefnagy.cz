@@ -45,23 +45,15 @@ const Hero: NextPage = () => {
           initial="hidden"
           animate="visible"
         >
-          <motion.span
-            className="inline-block transition-colors duration-500 hover:text-white"
-            variants={text}
-          >
+          <motion.span className="inline-block transition-colors duration-500 hover:text-white" variants={text}>
             Hello,
           </motion.span>{' '}
           <motion.span className="inline-block" variants={text}>
             <span className="inline-block transition-colors duration-500 hover:text-white">I</span>{' '}
             <span className="inline-block transition-colors duration-500 hover:text-white">am</span>{' '}
-            <span className="inline-block transition-colors duration-500 hover:text-white">
-              Josef.
-            </span>
+            <span className="inline-block transition-colors duration-500 hover:text-white">Josef.</span>
           </motion.span>
-          <motion.span
-            className="inline-block transition-colors duration-500 hover:text-white"
-            variants={text}
-          >
+          <motion.span className="inline-block transition-colors duration-500 hover:text-white" variants={text}>
             Welcome.
           </motion.span>
         </motion.h1>

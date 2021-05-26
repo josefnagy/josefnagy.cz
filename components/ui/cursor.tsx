@@ -36,11 +36,7 @@ const Cursor = () => {
       cursor ? (cursor.style.left = `${e.clientX - 6}px`) : ''
       cursor ? (cursor.style.top = `${e.clientY - 6}px`) : ''
 
-      shadow
-        ? (shadow.style.transform = `translate(${e.clientX - mouseCorrection}px, ${
-            e.clientY - mouseCorrection
-          }px )`)
-        : ''
+      shadow ? (shadow.style.transform = `translate(${e.clientX - mouseCorrection}px, ${e.clientY - mouseCorrection}px )`) : ''
     }
   }, [])
 
