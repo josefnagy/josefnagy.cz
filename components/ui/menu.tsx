@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { Portal } from 'react-portal'
+import MenuItem from './menu-item'
 
 interface Props {
   isMenuOpened: boolean
@@ -27,9 +28,14 @@ const heading = {
   to: { y: 0, opacity: 1, transition: { delay: 0.5, type: 'tween', duration: 1 } },
 }
 
+const list = {
+  from: {},
+  to: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+}
+
 const items = {
-  from: { transition: { scale: 2 } },
-  to: { transition: { scale: 0.5 } },
+  from: { opacity: 0, transition: { ease: 'easeIn', duration: 0.4 } },
+  to: { opacity: 1, transition: { ease: 'easeIn', duration: 0.4 } },
 }
 
 const Menu: React.FC<Props> = ({ isMenuOpened, setIsMenuOpened }) => {
@@ -79,36 +85,25 @@ const Menu: React.FC<Props> = ({ isMenuOpened, setIsMenuOpened }) => {
             <div className="h-full pt-48">
               <div className="">
                 <nav>
-                  <ul className="w-full max-w-screen-lg mx-auto flex justify-between flex-wrap">
-                    <motion.li className="max-w-lg w-47 mb-36" variants={items} initial="from" animate={animation}>
-                      <Link href="/">
-                        <a
-                          onClick={() => {
-                            handleMenuClick()
-                          }}
-                        >
-                          <span>01. Home</span>
-                          <Image src="/images/site/menu/hero.png" width={500} height={350} quality={100} />
-                        </a>
-                      </Link>
-                    </motion.li>
-                    <motion.li className="max-w-lg w-47" variants={items} initial="from" animate={animation}>
-                      <Link href="/">
-                        <a>
-                          <span>02. Projects</span>
-                          <Image src="/images/site/menu/projects.png" width={500} height={350} quality={100} />
-                        </a>
-                      </Link>
-                    </motion.li>
-                    <motion.li className="max-w-lg w-47 pb-40" variants={items} initial="from" animate={animation}>
-                      <Link href="/">
-                        <a>
-                          <span>03. Contact</span>
-                          <Image src="/images/site/menu/contact.png" width={500} height={350} quality={100} />
-                        </a>
-                      </Link>
-                    </motion.li>
-                  </ul>
+                  <motion.ul
+                    className="relative w-full max-w-screen-lg mx-auto flex justify-between flex-wrap"
+                    variants={list}
+                    initial="from"
+                    animate={animation}
+                  >
+                    <MenuItem setShowMenu={setShowMenu} setIsMenuOpened={setIsMenuOpened} img="/images/site/menu/hero.png">
+                      {' '}
+                      01. Home
+                    </MenuItem>
+                    <MenuItem setShowMenu={setShowMenu} setIsMenuOpened={setIsMenuOpened} img="/images/site/menu/projects.png">
+                      {' '}
+                      02. Projects
+                    </MenuItem>
+                    <MenuItem setShowMenu={setShowMenu} setIsMenuOpened={setIsMenuOpened} img="/images/site/menu/contact.png">
+                      {' '}
+                      03. Contact
+                    </MenuItem>
+                  </motion.ul>
                 </nav>
               </div>
             </div>

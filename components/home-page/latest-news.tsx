@@ -15,9 +15,7 @@ const LatestNews: NextPage = () => {
                 </Link>
               </h4>
               <p className="text-sm text-dg">May, 15th, 2021</p>
-              <p className="mt-2 text-justify text-xl">
-                In this article we will look at different ways to put butter on your bread
-              </p>
+              <p className="mt-2 text-justify text-xl">In this article we will look at different ways to put butter on your bread</p>
             </div>
             <div className="transition duration-500 flex-1 p-8  z-20 opacity-60 hover:opacity-100">
               <h4 className="text-2xl text-primary ">
@@ -26,9 +24,7 @@ const LatestNews: NextPage = () => {
                 </Link>
               </h4>
               <p className="text-sm text-dg">May, 15th, 2021</p>
-              <p className="mt-2 text-justify text-xl">
-                In this article we will look at different ways to put butter on your bread
-              </p>
+              <p className="mt-2 text-justify text-xl">In this article we will look at different ways to put butter on your bread</p>
             </div>
             <div className="transition duration-500 flex-1 p-8  z-20 opacity-60 hover:opacity-100">
               <h4 className="text-2xl text-primary ">
@@ -37,9 +33,7 @@ const LatestNews: NextPage = () => {
                 </Link>
               </h4>
               <p className="text-sm text-dg">May, 15th, 2021</p>
-              <p className="mt-2 text-justify text-xl">
-                In this article we will look at different ways to put butter on your bread
-              </p>
+              <p className="mt-2 text-justify text-xl">In this article we will look at different ways to put butter on your bread</p>
             </div>
           </div>
         </div>
