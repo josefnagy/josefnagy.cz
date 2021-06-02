@@ -1,95 +1,56 @@
 import { ReactChild, useEffect } from 'react'
 
-interface BoxCoords {
-  top: number
-  left: number
-  right: number
-  bottom: number
-}
-
 interface MagneticProps {
   threshold?: number
-  children: ReactChild
+  children?: ReactChild
   selector: string
   trY?: boolean
+  magnetic?: boolean
 }
 
-const Magnetic: React.FC<MagneticProps> = ({ children, threshold, selector, trY }) => {
+const Magnetic: React.FC<MagneticProps> = ({ children, threshold, selector, trY, magnetic }) => {
   useEffect(() => {
-    let hover = false
-    const magneticLink = document.querySelector(selector) as HTMLDivElement
     const cursor = document.querySelector('.cursor') as HTMLDivElement
     const shadow = document.querySelector('.shadow') as HTMLDivElement
+    const magneticLinks = document.querySelectorAll(selector) as NodeListOf<HTMLDivElement>
 
-    magneticLink.style.transition = 'all 0.5s'
+    magneticLinks.forEach((magneticLink) => magneticLink.addEventListener('mousemove', animateIn))
+    magneticLinks.forEach((magneticLink) => magneticLink.addEventListener('mouseleave', animateOut))
+    magneticLinks.forEach((magneticLink) => (magneticLink.style.transition = 'all 350ms linear'))
 
-    function onMouseMove(e: MouseEvent) {
-      const boxCoords: BoxCoords = getCoords(magneticLink)
+    function animateIn(this: any, e: MouseEvent) {
+      if (magnetic) {
+        const rect = this.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top
 
-      if (inRange(boxCoords, e, threshold)) {
-        animateIn(cursor, shadow, magneticLink, e)
-        hover = true
-      } else {
-        if (hover) {
-          hover = false
-          animateOut(cursor, shadow, magneticLink)
-        }
+        // const { offsetX: x, offsetY: y } = e
+        const { offsetWidth: width, offsetHeight: height } = this
+
+        const moveArea = 30
+        const xMove = (x / width) * (moveArea * 2) - moveArea
+        const yMove = (y / height) * (moveArea * 2) - moveArea
+
+        this.style.transform = `translate3D(${xMove}px, ${trY ? yMove : 0}px, ${0}px)`
       }
-    }
 
-    function animateIn(cursor: HTMLDivElement, shadow: HTMLDivElement, magnet: HTMLDivElement, e: MouseEvent) {
-      const center = getCenter(magnet)
-
-      cursor.style.transform = 'scale(4)'
+      cursor.style.transform = 'scale(5)'
       shadow.style.opacity = '0'
-      magnet.style.transform = `translate(${-20}px, ${trY ? 0 : 0}px)`
     }
 
-    function animateOut(cursor: HTMLDivElement, shadow: HTMLDivElement, magnet: HTMLDivElement) {
+    function animateOut(this: any) {
       cursor.style.transform = 'scale(1)'
       shadow.style.opacity = '1'
       shadow.style.left = `+6px`
       shadow.style.top = `+6px`
-      magnet.style.transform = 'translate(0px, 0px)'
+      if (magnetic) this.style.transform = 'translate3D(0px, 0px, 0px)'
     }
 
-    if (document) {
-      document.addEventListener('mousemove', onMouseMove)
+    return () => {
+      magneticLinks.forEach((magneticLink) => magneticLink.removeEventListener('mousemove', animateIn))
+      magneticLinks.forEach((magneticLink) => magneticLink.removeEventListener('mouseleave', animateOut))
     }
-  }, [threshold, selector, trY])
-
-  function getCoords(elem: HTMLDivElement): BoxCoords {
-    const box = elem.getBoundingClientRect()
-
-    return {
-      top: box.top,
-      right: box.right,
-      bottom: box.bottom,
-      left: box.left,
-    }
-  }
-
-  function getCenter(elem: HTMLDivElement) {
-    const box = elem.getBoundingClientRect()
-
-    return {
-      x: box.x + box.width / 2,
-      y: box.y + box.height / 2,
-    }
-  }
-
-  function inRange(elem: BoxCoords, cursor: MouseEvent, threshold = 0) {
-    const cX = cursor.clientX
-    const cY = cursor.clientY
-
-    const left = elem.left - threshold
-    const right = elem.right + threshold
-    const top = elem.top - threshold
-    const bottom = elem.bottom + threshold
-
-    if (cX >= left && cX <= right && cY <= bottom && cY >= top) return true
-    return false
-  }
+  }, [threshold, selector, trY, magnetic])
 
   return <>{children}</>
 }

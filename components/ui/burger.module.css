@@ -1,21 +1,15 @@
-.burger{
-  background: transparent;
-  border: 0;
-}
-
 .burger:focus {
   outline: none;
 }
 
 .burger {
+  background: transparent;
+  border: 0;
   position: relative;
-  width: 26px;
+  width: 22px;
   height: 18px;
-  cursor: none
-}
-
-.burger:hover span {
-  /* background: #664E54; */
+  cursor: none;
+  padding: 1rem;
 }
 
 .burger span {

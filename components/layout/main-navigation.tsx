@@ -38,7 +38,7 @@ const MainNavigation: NextPage = () => {
         <Menu setIsMenuOpened={setIsMenuOpened} isMenuOpened={isMenuOpened} />
         <div className="w-full">
           {/* <div className="pt-10 w-full inline-block flex flex-row justify-between flex-initial"> */}
-          <Magnetic threshold={20} selector=".logo">
+          <Magnetic threshold={20} selector=".logo" magnetic>
             <Link href="/">
               <a className={`absolute logo z-30 top-t1 left-t2 lg:top-t3 xl:left-t7 ${isMenuOpened ? 'opacity-0' : ''}`}>
                 {/* <a className="ml-28 logo z-30"> */}
@@ -46,7 +46,7 @@ const MainNavigation: NextPage = () => {
               </a>
             </Link>
           </Magnetic>
-          <Magnetic threshold={20} selector=".menu-button" trY>
+          <Magnetic threshold={20} selector=".menu-button" trY magnetic>
             <nav className="absolute menu-button top-t1 right-t2 mt-3 mr-1 lg:top-t3 xl:right-t7 z-50">
               {/* <nav className="self-end grid place-items-center mr-28 mb-1"> */}
               <Burger isMenuOpened={isMenuOpened} setIsMenuOpened={setIsMenuOpened} />

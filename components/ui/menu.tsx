@@ -31,10 +31,10 @@ const list = {
   to: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
 }
 
-const items = {
-  from: { opacity: 0, transition: { ease: 'easeIn', duration: 0.4 } },
-  to: { opacity: 1, transition: { ease: 'easeIn', duration: 0.4 } },
-}
+// const items = {
+//   from: { opacity: 0, transition: { ease: 'easeIn', duration: 0.4 } },
+//   to: { opacity: 1, transition: { ease: 'easeIn', duration: 0.4 } },
+// }
 
 const Menu: React.FC<Props> = ({ isMenuOpened, setIsMenuOpened }) => {
   const animation = useAnimation()
@@ -56,10 +56,10 @@ const Menu: React.FC<Props> = ({ isMenuOpened, setIsMenuOpened }) => {
     }
   }, [animation, isMenuOpened, showMenu])
 
-  const handleMenuClick = () => {
-    setShowMenu(false)
-    setIsMenuOpened(false)
-  }
+  // const handleMenuClick = () => {
+  //   setShowMenu(false)
+  //   setIsMenuOpened(false)
+  // }
 
   return (
     <>

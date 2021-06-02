@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import Magnetic from '../ui/magnetic'
 
 const Footer: NextPage = () => {
   return (
@@ -8,9 +9,11 @@ const Footer: NextPage = () => {
         <div className="mt-16 flex justify-between">
           <span className="text-dg text-l uppercase tracking-widest">© Josef Nagy 2021</span>
           <span className="text-dg text-l uppercase tracking-widest">
-            <a href="mailto:josef.nagy@outlook.cz" target="_blank" rel="noreferrer">
-              josef.nagy@outlook.cz
-            </a>
+            <Magnetic selector=".mailto">
+              <a className="mailto" href="mailto:josef.nagy@outlook.cz" target="_blank" rel="noreferrer">
+                josef.nagy@outlook.cz
+              </a>
+            </Magnetic>
           </span>
         </div>
       </footer>

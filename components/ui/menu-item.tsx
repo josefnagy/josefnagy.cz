@@ -22,7 +22,7 @@ const MenuItem: React.FC<Props> = ({ setShowMenu, setIsMenuOpened, img, children
 
   return (
     <>
-      <Magnetic trY selector=".menu-item" threshold={20}>
+      <Magnetic trY magnetic selector=".menu-item" threshold={20}>
         <motion.li className="menu-item max-w-lg w-47 mb-24" variants={items}>
           <Link href="/">
             <a

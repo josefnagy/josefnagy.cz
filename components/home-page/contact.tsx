@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import Magnetic from '../ui/magnetic'
 // import Link from 'next/link'
 
 const Contact: NextPage = () => {
@@ -42,7 +43,9 @@ const Contact: NextPage = () => {
                 className="w-full bg-transparent ring ring-1 ring-white text-xl pl-2 pt-1 pb-2 tracking-wide focus:outline-none focus:ring-2 focus:ring-primary focus:border-none"
               />
             </label>
-            <button className="transition duration-500ring ring-2 ring-primary px-4 pb-1 text-xl hover:bg-primary">Send message</button>
+            <Magnetic selector=".contact-btn">
+              <button className="contact-btn transition duration-500ring ring-2 ring-primary px-4 pb-1 text-xl hover:bg-primary">Send message</button>
+            </Magnetic>
           </form>
         </div>
       </section>
