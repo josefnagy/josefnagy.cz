@@ -1,32 +1,31 @@
 import { NextPage } from 'next'
 import Image from 'next/image'
-import { MutableRefObject, useRef } from 'react'
+import { RefObject, useRef } from 'react'
 import Link from 'next/link'
 import Magnetic from '../ui/magnetic'
 
 const Projects: NextPage = () => {
-  const workcal = useRef<HTMLDivElement>()
-  const recipe = useRef<HTMLDivElement>()
-  const portfolio = useRef<HTMLDivElement>()
-  const aracolor = useRef<HTMLDivElement>()
+  const workcal = useRef<HTMLDivElement>(null)
+  const recipe = useRef<HTMLDivElement>(null)
+  const portfolio = useRef<HTMLDivElement>(null)
+  const aracolor = useRef<HTMLDivElement>(null)
 
-  function setOpacity(div: MutableRefObject<HTMLDivElement | undefined>, op: string) {
+  function setOpacity(div: RefObject<HTMLDivElement>, op: string) {
     if (div.current) div.current.style.opacity = op
   }
 
   //* e: { target: HTMLDivElement } */
   //* this is cool, i tryed e: MouseEvent and other stuff but this works like charm
 
-  function onMouseEnter(e: { target: HTMLDivElement }) {
-    if (e.target) {
-      e.target.id === 'workcal' ? setOpacity(workcal, '0.2') : ''
-      e.target.id === 'recipe' ? setOpacity(recipe, '0.2') : ''
-      e.target.id === 'portfolio' ? setOpacity(portfolio, '0.2') : ''
-      e.target.id === 'aracolor' ? setOpacity(aracolor, '0.2') : ''
-    }
+  // function onMouseEnter(e: MouseEvent<HTMLAnchorElement>) {
+  function onMouseEnter(this: any) {
+    this.id === 'workcal' ? setOpacity(workcal, '0.2') : ''
+    this.id === 'recipe' ? setOpacity(recipe, '0.2') : ''
+    this.id === 'portfolio' ? setOpacity(portfolio, '0.2') : ''
+    this.id === 'aracolor' ? setOpacity(aracolor, '0.2') : ''
   }
 
-  function onMouseLeave(e: { target: HTMLDivElement }) {
+  function onMouseLeave(e: any) {
     e.target.id === 'workcal' ? setOpacity(workcal, '0') : ''
     e.target.id === 'recipe' ? setOpacity(recipe, '0') : ''
     e.target.id === 'portfolio' ? setOpacity(portfolio, '0') : ''
