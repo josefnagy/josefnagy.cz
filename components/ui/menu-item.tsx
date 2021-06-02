@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import Magnetic from './magnetic'
 
 const items = {
   from: { opacity: 0, transition: { ease: 'easeIn', duration: 0.4 } },
@@ -21,22 +22,24 @@ const MenuItem: React.FC<Props> = ({ setShowMenu, setIsMenuOpened, img, children
 
   return (
     <>
-      <motion.li className="max-w-lg w-47 mb-24" variants={items}>
-        <Link href="/">
-          <a
-            onClick={() => {
-              handleMenuClick()
-            }}
-            role="button"
-            tabIndex={0}
-            onKeyPress={() => handleMenuClick()}
-            className="text-left"
-          >
-            <span className="text-black text-2xl inline-block pb-1 font-black uppercase font-heading">{children}</span>
-            <Image src={img} width={500} height={350} quality={100} />
-          </a>
-        </Link>
-      </motion.li>
+      <Magnetic trY selector=".menu-item" threshold={20}>
+        <motion.li className="menu-item max-w-lg w-47 mb-24" variants={items}>
+          <Link href="/">
+            <a
+              onClick={() => {
+                handleMenuClick()
+              }}
+              role="button"
+              tabIndex={0}
+              onKeyPress={() => handleMenuClick()}
+              className="text-left"
+            >
+              <span className="text-black text-2xl inline-block pb-1 font-black uppercase font-heading">{children}</span>
+              <Image src={img} width={500} height={350} quality={100} />
+            </a>
+          </Link>
+        </motion.li>
+      </Magnetic>
     </>
   )
 }
