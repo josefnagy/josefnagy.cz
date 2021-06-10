@@ -1,10 +1,10 @@
 import { NextPage } from 'next'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 
 import Burger from '../ui/burger'
 import Logo from './logo'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Menu from '../ui/menu'
 import Magnetic from '../ui/magnetic'
 
@@ -17,15 +17,43 @@ const header = {
     y: 0,
     opacity: 1,
     transition: {
-      type: 'tween',
-      delay: 2,
+      type: 'linear',
+      delay: 1.5,
       duration: 1,
     },
+  },
+  scrollStart: {
+    y: 0,
+  },
+  scrollEnd: {
+    y: '-25px',
   },
 }
 
 const MainNavigation: NextPage = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false)
+  const animation = useAnimation()
+
+  useEffect(() => {
+    animation.start('end')
+
+    if (document) {
+      document.addEventListener('scroll', onScroll)
+    }
+
+    function onScroll() {
+      // animate header only when scrolled and when not on mobile resolution
+      if (window.scrollY > 50 && window.innerWidth >= 1024) {
+        animation.start('scrollEnd')
+      } else {
+        animation.start('scrollStart')
+      }
+    }
+
+    return () => {
+      document.removeEventListener('scroll', onScroll)
+    }
+  }, [animation])
 
   return (
     <>
@@ -33,7 +61,7 @@ const MainNavigation: NextPage = () => {
         className="transition-all duration-500 relative px-4 w-full flex flex-row justify-between flex-initial fixed z-20"
         variants={header}
         initial="start"
-        animate="end"
+        animate={animation}
       >
         <Menu setIsMenuOpened={setIsMenuOpened} isMenuOpened={isMenuOpened} />
         <div className="w-full">
