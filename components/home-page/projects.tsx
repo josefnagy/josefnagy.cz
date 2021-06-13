@@ -14,9 +14,6 @@ const Projects: NextPage = () => {
     if (div.current) div.current.style.opacity = op
   }
 
-  //* e: { target: HTMLDivElement } */
-  //* this is cool, i tryed e: MouseEvent and other stuff but this works like charm
-
   // function onMouseEnter(e: MouseEvent<HTMLAnchorElement>) {
   function onMouseEnter(this: any) {
     this.id === 'workcal' ? setOpacity(workcal, '0.2') : ''

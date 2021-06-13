@@ -56,11 +56,6 @@ const Menu: React.FC<Props> = ({ isMenuOpened, setIsMenuOpened }) => {
     }
   }, [animation, isMenuOpened, showMenu])
 
-  // const handleMenuClick = () => {
-  //   setShowMenu(false)
-  //   setIsMenuOpened(false)
-  // }
-
   return (
     <>
       {showMenu && (
