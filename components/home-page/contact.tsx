@@ -8,12 +8,24 @@ const Contact: NextPage = () => {
   const emailInput = useRef<HTMLInputElement>(null)
   const messageInput = useRef<HTMLTextAreaElement>(null)
 
-  const [nameErr, setNameErr] = useState(null)
-  const [emailErr, setEmailErr] = useState(null)
-  const [messageErr, setMessageErr] = useState(null)
+  const [nameErr, setNameErr] = useState(false)
+  const [emailErr, setEmailErr] = useState(false)
+  const [messageErr, setMessageErr] = useState(false)
 
   function handleFormSubmit(e: FormEvent) {
+    setNameErr(false)
+    setEmailErr(false)
+    setMessageErr(false)
+
     e.preventDefault()
+
+    const name = nameInput.current?.value
+    const email = emailInput.current?.value
+    const message = messageInput.current?.value
+
+    if (!name || (name && (name?.length < 3 || name?.length > 15))) setNameErr(true)
+    if (!email || (email && (email?.length < 3 || email?.length > 15))) setEmailErr(true)
+    if (!message || (message && (message?.length < 3 || message?.length) > 15)) setMessageErr(true)
   }
 
   return (
