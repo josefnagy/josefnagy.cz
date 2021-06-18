@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { FormEvent, useRef, useState } from 'react'
+import { FormEvent, useRef, useState, useEffect } from 'react'
 
 import Magnetic from '../ui/magnetic'
 
@@ -12,17 +12,36 @@ const Contact: NextPage = () => {
   const [emailErr, setEmailErr] = useState(false)
   const [messageErr, setMessageErr] = useState(false)
 
+  const [requestStatus, setRequestStatus] = useState<string | null>(null) // "pending, success, error"
+  const [requestError, setRequestError] = useState<string | null>(null)
+
+  useEffect(() => {
+    console.log(requestStatus)
+  }, [requestStatus])
+
+  // useEffect(() => {
+  //   if (requestStatus === 'success' || requestStatus === 'error') {
+  //     const timer = setTimeout(() => {
+  //       setRequestStatus(null)
+  //       setRequestError(null)
+  //     }, 3000)
+  //     return clearTimeout(timer)
+  //   }
+  // }, [requestStatus])
+
   function validateEmail(email: string) {
     const re = /\S+@\S+\.\S+/
     return re.test(email)
   }
 
-  function handleFormSubmit(e: FormEvent) {
+  async function handleFormSubmit(e: FormEvent) {
+    e.preventDefault()
+
     setNameErr(false)
     setEmailErr(false)
     setMessageErr(false)
 
-    e.preventDefault()
+    setRequestStatus('pending')
 
     const name = nameInput.current?.value
     const email = emailInput.current?.value
@@ -31,6 +50,10 @@ const Contact: NextPage = () => {
     if (!name || name?.length < 3 || name?.length > 15) setNameErr(true)
     if (!email || !validateEmail(email)) setEmailErr(true)
     if (!message || message?.length < 3) setMessageErr(true)
+
+    if (!nameErr || !emailErr || !messageErr) {
+      // call to API
+    }
   }
 
   return (
