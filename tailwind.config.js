@@ -17,6 +17,9 @@ module.exports = {
         text: "#888888",
         warning: '#FC3434',
       },
+      ringColor: {
+        warning: '#FC3434',
+      },
       fontSize: {
         'header': ['10vw'],
         'menuHeader': '12vw'

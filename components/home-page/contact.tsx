@@ -12,6 +12,11 @@ const Contact: NextPage = () => {
   const [emailErr, setEmailErr] = useState(false)
   const [messageErr, setMessageErr] = useState(false)
 
+  function validateEmail(email: string) {
+    const re = /\S+@\S+\.\S+/
+    return re.test(email)
+  }
+
   function handleFormSubmit(e: FormEvent) {
     setNameErr(false)
     setEmailErr(false)
@@ -23,9 +28,9 @@ const Contact: NextPage = () => {
     const email = emailInput.current?.value
     const message = messageInput.current?.value
 
-    if (!name || (name && (name?.length < 3 || name?.length > 15))) setNameErr(true)
-    if (!email || (email && (email?.length < 3 || email?.length > 15))) setEmailErr(true)
-    if (!message || (message && (message?.length < 3 || message?.length) > 15)) setMessageErr(true)
+    if (!name || name?.length < 3 || name?.length > 15) setNameErr(true)
+    if (!email || !validateEmail(email)) setEmailErr(true)
+    if (!message || message?.length < 3) setMessageErr(true)
   }
 
   return (
@@ -46,7 +51,9 @@ const Contact: NextPage = () => {
               <input
                 type="text"
                 ref={nameInput}
-                className="w-full bg-transparent ring ring-1 ring-white text-xl pl-2 pt-1 pb-2 tracking-wide focus:outline-none focus:ring-2 focus:ring-primary focus:border-none"
+                className={`w-full bg-transparent ring ring-2 ${
+                  nameErr ? 'ring-warning' : 'ring-white'
+                } text-xl pl-2 pt-1 pb-2 tracking-wide focus:outline-none focus:ring-2 focus:ring-primary focus:border-none`}
               />
             </label>
             <label className="block mb-7">
@@ -57,18 +64,22 @@ const Contact: NextPage = () => {
               <input
                 type="text"
                 ref={emailInput}
-                className="w-full bg-transparent ring ring-1 ring-white text-xl pl-2 pt-1 pb-2 tracking-wide focus:outline-none focus:ring-2 focus:ring-primary focus:border-none"
+                className={`w-full bg-transparent ring ring-2 ${
+                  emailErr ? 'ring-warning' : 'ring-white'
+                } text-xl pl-2 pt-1 pb-2 tracking-wide focus:outline-none focus:ring-2 focus:ring-primary focus:border-none`}
               />
             </label>
             <label className="block mb-7">
               <div className="relative flex">
                 <span className="absolute uppercase font-bold mb-2 text-xl">Message</span>
-                <span className="text-warning mx-auto text-xl mb-2">&nbsp;{messageErr && 'Name has to be 3 to 15 characters long.'}</span>
+                <span className="text-warning mx-auto text-xl mb-2">&nbsp;{messageErr && 'You are missing a message.'}</span>
               </div>
               <textarea
                 rows={5}
                 ref={messageInput}
-                className="w-full bg-transparent ring ring-1 ring-white text-xl pl-2 pt-1 pb-2 tracking-wide focus:outline-none focus:ring-2 focus:ring-primary focus:border-none"
+                className={`w-full bg-transparent ring ring-2 ${
+                  messageErr ? 'ring-warning' : 'ring-white'
+                } text-xl pl-2 pt-1 pb-2 tracking-wide focus:outline-none focus:ring-2 focus:ring-primary focus:border-none`}
               />
             </label>
             <Magnetic selector=".contact-btn">
