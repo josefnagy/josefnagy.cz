@@ -3,6 +3,30 @@ import { FormEvent, useRef, useState, useEffect } from 'react'
 
 import Magnetic from '../ui/magnetic'
 
+export interface ContactDetails {
+  name: string
+  email: string
+  message: string
+  id?: string
+  createdAt: Date
+}
+
+async function sendContactData(contactDetails: ContactDetails) {
+  console.log(contactDetails)
+
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    body: JSON.stringify(contactDetails),
+    headers: {
+      'Content-type': 'application/json',
+    },
+  })
+
+  const data = await response.json()
+
+  if (!response.ok) throw new Error(data.message || 'Something went wrong')
+}
+
 const Contact: NextPage = () => {
   const nameInput = useRef<HTMLInputElement>(null)
   const emailInput = useRef<HTMLInputElement>(null)
@@ -16,18 +40,14 @@ const Contact: NextPage = () => {
   const [requestError, setRequestError] = useState<string | null>(null)
 
   useEffect(() => {
-    console.log(requestStatus)
+    if (requestStatus === 'success' || requestStatus === 'error') {
+      const timer = setTimeout(() => {
+        setRequestStatus(null)
+        setRequestError(null)
+      }, 3000)
+      return clearTimeout(timer)
+    }
   }, [requestStatus])
-
-  // useEffect(() => {
-  //   if (requestStatus === 'success' || requestStatus === 'error') {
-  //     const timer = setTimeout(() => {
-  //       setRequestStatus(null)
-  //       setRequestError(null)
-  //     }, 3000)
-  //     return clearTimeout(timer)
-  //   }
-  // }, [requestStatus])
 
   function validateEmail(email: string) {
     const re = /\S+@\S+\.\S+/
@@ -37,22 +57,45 @@ const Contact: NextPage = () => {
   async function handleFormSubmit(e: FormEvent) {
     e.preventDefault()
 
+    const target = e.target as HTMLFormElement
+
     setNameErr(false)
     setEmailErr(false)
     setMessageErr(false)
 
     setRequestStatus('pending')
 
-    const name = nameInput.current?.value
-    const email = emailInput.current?.value
-    const message = messageInput.current?.value
+    const name = nameInput.current?.value as string
+    const email = emailInput.current?.value as string
+    const message = messageInput.current?.value as string
 
-    if (!name || name?.length < 3 || name?.length > 15) setNameErr(true)
-    if (!email || !validateEmail(email)) setEmailErr(true)
-    if (!message || message?.length < 3) setMessageErr(true)
+    if (!name || name?.length < 3 || name?.length > 15) {
+      setNameErr(true)
+      return
+    }
+    if (!email || !validateEmail(email)) {
+      setEmailErr(true)
+      return
+    }
+    if (!message || message?.length < 3) {
+      setMessageErr(true)
+      return
+    }
 
     if (!nameErr || !emailErr || !messageErr) {
-      // call to API
+      try {
+        await sendContactData({
+          name,
+          email,
+          message,
+          createdAt: new Date(),
+        })
+        setRequestStatus('success')
+        target.reset()
+      } catch (error) {
+        setRequestError(error)
+        setRequestStatus('error')
+      }
     }
   }
 
