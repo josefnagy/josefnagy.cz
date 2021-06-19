@@ -58,7 +58,7 @@ const MainNavigation: NextPage = () => {
   return (
     <>
       <motion.header
-        className="transition-all duration-500 relative px-4 w-full flex flex-row justify-between flex-initial fixed z-20"
+        className="transition-all duration-500 px-4 w-full flex flex-row justify-between flex-initial fixed z-20"
         variants={header}
         initial="start"
         animate={animation}
