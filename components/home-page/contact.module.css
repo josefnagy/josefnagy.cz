@@ -1,0 +1,7 @@
+.errorNotification {
+  transition: all 500ms;
+}
+
+.showNotification {
+  height: 30px;
+}

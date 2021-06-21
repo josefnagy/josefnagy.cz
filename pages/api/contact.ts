@@ -39,6 +39,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.bqp9g.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`
 
+    // const connectionString = `mongodb+srv://${process.env.mongodb_username}:asdas@${process.env.mongodb_clustername}.bqp9g.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`
+
     try {
       client = await MongoClient.connect(connectionString)
     } catch (error) {

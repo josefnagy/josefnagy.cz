@@ -3,7 +3,7 @@ import { FormEvent, useRef, useState, useEffect } from 'react'
 
 import Button from '../ui/button'
 import Magnetic from '../ui/magnetic'
-// import Notification from '../ui/notification'
+import classes from './contact.module.css'
 
 export interface ContactDetails {
   name: string
@@ -44,7 +44,8 @@ const Contact: NextPage = () => {
       const timer = setTimeout(() => {
         setRequestStatus(null)
         setRequestError('')
-      }, 3000)
+      }, 5000)
+
       return () => {
         clearTimeout(timer)
       }
@@ -65,8 +66,6 @@ const Contact: NextPage = () => {
     setEmailErr(false)
     setMessageErr(false)
 
-    setRequestStatus('pending')
-
     const name = nameInput.current?.value as string
     const email = emailInput.current?.value as string
     const message = messageInput.current?.value as string
@@ -85,6 +84,7 @@ const Contact: NextPage = () => {
     }
 
     if (!nameErr || !emailErr || !messageErr) {
+      setRequestStatus('pending')
       try {
         await sendContactData({
           name,
@@ -110,7 +110,17 @@ const Contact: NextPage = () => {
             Let’s have some <span className="contact-header">fun.</span>
           </h2>
           <p className="text-center text-dg -mt-2 text-xl">I can’t give You a ride in locomotive so don’t even try :-)</p>
-          {requestError && <p className="border border-warning mt-10 text-center text-warning text-xl">{requestError}</p>}
+
+          <p
+            className={
+              requestError
+                ? `${classes.errorNotification} ${classes.showNotification} opacity-1 h-30 border border-warning mt-10 text-center text-warning text-xl  `
+                : `${classes.errorNotification} border border-warning opacity-0 h-0 mt-10 text-center text-warning text-xl`
+            }
+          >
+            {requestError}
+          </p>
+
           <form className="mt-10 relative" onSubmit={handleFormSubmit}>
             <label className="block mb-7">
               <div className="relative flex">
@@ -152,12 +162,9 @@ const Contact: NextPage = () => {
               />
             </label>
             <Magnetic selector=".contact-btn">
-              {/* <button type="submit" className="contact-btn transition duration-500ring ring-2 ring-primary px-4 pb-1 text-xl hover:bg-primary">
-
-              </button> */}
               <Button
                 status={requestStatus}
-                className="contact-btn transition duration-500ring ring-2 ring-primary px-4 pb-1 text-xl hover:bg-primary w-48 h-8"
+                className="contact-btn transition duration-500ring ring-2 ring-primary px-4 pb-1 text-xl hover:bg-primary w-48 h-9"
               >
                 Send Message
               </Button>
