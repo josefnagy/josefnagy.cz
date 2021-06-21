@@ -1,7 +1,9 @@
 import { NextPage } from 'next'
 import { FormEvent, useRef, useState, useEffect } from 'react'
 
+import Button from '../ui/button'
 import Magnetic from '../ui/magnetic'
+// import Notification from '../ui/notification'
 
 export interface ContactDetails {
   name: string
@@ -12,8 +14,6 @@ export interface ContactDetails {
 }
 
 async function sendContactData(contactDetails: ContactDetails) {
-  console.log(contactDetails)
-
   const response = await fetch('/api/contact', {
     method: 'POST',
     body: JSON.stringify(contactDetails),
@@ -43,9 +43,11 @@ const Contact: NextPage = () => {
     if (requestStatus === 'success' || requestStatus === 'error') {
       const timer = setTimeout(() => {
         setRequestStatus(null)
-        setRequestError(null)
+        setRequestError('')
       }, 3000)
-      return clearTimeout(timer)
+      return () => {
+        clearTimeout(timer)
+      }
     }
   }, [requestStatus])
 
@@ -93,7 +95,7 @@ const Contact: NextPage = () => {
         setRequestStatus('success')
         target.reset()
       } catch (error) {
-        setRequestError(error)
+        setRequestError(error.message)
         setRequestStatus('error')
       }
     }
@@ -108,7 +110,8 @@ const Contact: NextPage = () => {
             Let’s have some <span className="contact-header">fun.</span>
           </h2>
           <p className="text-center text-dg -mt-2 text-xl">I can’t give You a ride in locomotive so don’t even try :-)</p>
-          <form className="mt-10" onSubmit={handleFormSubmit}>
+          {requestError && <p className="border border-warning mt-10 text-center text-warning text-xl">{requestError}</p>}
+          <form className="mt-10 relative" onSubmit={handleFormSubmit}>
             <label className="block mb-7">
               <div className="relative flex">
                 <span className="absolute uppercase font-bold mb-2 text-xl">Name</span>
@@ -149,9 +152,15 @@ const Contact: NextPage = () => {
               />
             </label>
             <Magnetic selector=".contact-btn">
-              <button type="submit" className="contact-btn transition duration-500ring ring-2 ring-primary px-4 pb-1 text-xl hover:bg-primary">
-                Send message
-              </button>
+              {/* <button type="submit" className="contact-btn transition duration-500ring ring-2 ring-primary px-4 pb-1 text-xl hover:bg-primary">
+
+              </button> */}
+              <Button
+                status={requestStatus}
+                className="contact-btn transition duration-500ring ring-2 ring-primary px-4 pb-1 text-xl hover:bg-primary w-48 h-8"
+              >
+                Send Message
+              </Button>
             </Magnetic>
           </form>
         </div>
