@@ -20,7 +20,7 @@ const Burger: React.FC<Props> = ({ isMenuOpened, setIsMenuOpened }) => {
   }
 
   return (
-    <button ref={menuButtonRef} className={classes.burger} onClick={handleMenuClick}>
+    <button id="menuBtn" ref={menuButtonRef} className={classes.burger} onClick={handleMenuClick}>
       <span></span>
       <span></span>
       <span></span>

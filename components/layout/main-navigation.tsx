@@ -67,7 +67,7 @@ const MainNavigation: NextPage = () => {
         <div className="w-full">
           {/* <div className="pt-10 w-full inline-block flex flex-row justify-between flex-initial"> */}
           <Magnetic threshold={20} selector=".logo" magnetic>
-            <Link href="#hero">
+            <Link href="/">
               <a className={`absolute logo z-30 top-t1 left-t2 lg:top-t3 xl:left-t7 ${isMenuOpened ? 'opacity-0' : ''}`}>
                 {/* <a className="ml-28 logo z-30"> */}
                 <Logo />

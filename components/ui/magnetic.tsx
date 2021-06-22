@@ -43,12 +43,13 @@ const Magnetic: React.FC<MagneticProps> = ({ children, threshold, selector, trY,
       shadow.style.opacity = '1'
       shadow.style.left = `+6px`
       shadow.style.top = `+6px`
-      if (magnetic) this.style.transform = 'translate3D(0px, 0px, 0px)'
+      if (magnetic && this) this.style.transform = 'translate3D(0px, 0px, 0px)'
     }
 
     return () => {
       magneticLinks.forEach((magneticLink) => magneticLink.removeEventListener('mousemove', animateIn))
       magneticLinks.forEach((magneticLink) => magneticLink.removeEventListener('mouseleave', animateOut))
+      animateOut()
     }
   }, [threshold, selector, trY, magnetic])
 

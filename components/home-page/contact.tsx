@@ -151,7 +151,7 @@ const Contact: NextPage = () => {
             <label className="block mb-7">
               <div className="relative flex">
                 <span className="absolute uppercase font-bold mb-2 text-xl">Message</span>
-                <span className="text-warning mx-auto text-xl mb-2">&nbsp;{messageErr && 'You are missing a message.'}</span>
+                <span className="text-warning mx-auto text-xl mb-2">&nbsp;{messageErr && 'Your message is too short.'}</span>
               </div>
               <textarea
                 rows={5}

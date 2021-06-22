@@ -28,6 +28,10 @@
   top: 16px;
 }
 
+.lightBg span{
+  background: #000;
+}
+
 .navOpen span:first-child, .navOpen span:last-child {
   top: 8px;
 }

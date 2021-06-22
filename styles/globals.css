@@ -32,6 +32,11 @@ body {
   /* overflow: hidden */
 }
 
+.light-bg {
+  fill: var(--background);
+  background: #000 !important;
+}
+
 #__next {
   @apply h-full;
 
