@@ -35,11 +35,11 @@ body {
 .light-bg {
   fill: var(--background);
   background: #000 !important;
+  color: #191113
 }
 
 #__next {
   @apply h-full;
-
 }
 
 

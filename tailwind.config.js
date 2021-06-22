@@ -7,6 +7,7 @@ module.exports = {
       fontFamily: {
         body: ['Darker Grotesque', 'sans-serif'],
         heading: ['Raleway', 'sans-serif'],
+        project: ['Times New Roman', 'sans-serif']
       },
       colors: {
         background: '#191113',
@@ -23,7 +24,8 @@ module.exports = {
       },
       fontSize: {
         'header': ['10vw'],
-        'menuHeader': '12vw'
+        'menuHeader': '12vw',
+        'projectHeader': '50px'
       },
       lineHeight: {
         'heading': '11.5rem'

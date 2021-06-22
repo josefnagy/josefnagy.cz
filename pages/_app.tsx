@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Layout>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>josefnagy.cz</title>
+        <title>Josef Nagy - josefnagy.cz</title>
       </Head>
       <Cursor />
       <Component {...pageProps} />

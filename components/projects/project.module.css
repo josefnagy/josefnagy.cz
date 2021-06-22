@@ -1,0 +1,8 @@
+.dot {
+  position: relative;
+}
+
+.dot::after {
+  content: '';
+  position: absolute
+}
