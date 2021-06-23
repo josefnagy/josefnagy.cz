@@ -26,13 +26,19 @@ const ProjectsPage: React.FC<Props> = ({ project, index }) => {
   const light = (index + 1) % 2 > 0 ? true : false
 
   useEffect(() => {
+    const logoInitials = document.querySelector('#logo > path') as SVGElement
+    const logoDot = document.querySelector('#logo > rect') as SVGElement
+    const menuBtn = document.querySelector('#menuBtn > span') as HTMLButtonElement
     if (inView && !light) {
-      document.querySelector('#logo > path')?.classList.remove('light-bg')
-      document.querySelector('#logo > rect')?.classList.remove('light-bg')
+      logoInitials.classList.remove('light-bg')
+      logoDot.classList.remove('light-bg')
+      logoInitials.style.transition = 'all 500ms'
+      logoDot.style.transition = 'all 500ms'
+      menuBtn.style.transition = 'all 500ms'
       document.querySelector('#menuBtn')?.classList.remove(burgerClasses.lightBg)
     } else {
-      document.querySelector('#logo > path')?.classList.add('light-bg')
-      document.querySelector('#logo > rect')?.classList.add('light-bg')
+      logoInitials.classList.add('light-bg')
+      logoDot.classList.add('light-bg')
       document.querySelector('#menuBtn')?.classList.add(burgerClasses.lightBg)
     }
   }, [inView, light, entry])
