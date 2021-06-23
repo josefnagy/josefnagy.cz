@@ -86,7 +86,7 @@ const About: NextPage = () => {
                 <a href="#projects" className={`links inline-block transition-colors duration-300 text-primary font-bold hover:text-white relative hover`}>
                   work,
                 </a>
-              </motion.span>
+              </motion.span>{' '}
               <motion.span variants={text} className="inline-block">
                 or You can
               </motion.span>

@@ -49,7 +49,7 @@ const ProjectsPage: React.FC<Props> = ({ project, index }) => {
       {/* content wrapper */}
       <div className="px-p7">
         <Magnetic selector="a" />
-        <div className="flex justify-between normal-case text-prStats">
+        <div className="flex justify-between items-center normal-case text-prStats">
           <div>{projectNumber}</div>
           <div>
             <span className="text-primary mr-2">Role</span>
@@ -59,10 +59,23 @@ const ProjectsPage: React.FC<Props> = ({ project, index }) => {
             <span className="text-primary mr-2">Launched</span>
             <span className={light ? '' : 'text-white'}>{project.launched}</span>
           </div>
-          <a href={project.git} target="_blank" className={`${classes.dot} ${light ? '' : 'text-white'}`} rel="noreferrer">
-            View in Github
-          </a>
-          <a href={project.url} target="_blank" className={`${classes.dot} ${light ? '' : 'text-white'}`} rel="noreferrer">
+          <div className="">
+            <a
+              href={project.git}
+              target="_blank"
+              className={`${classes.dot} ${light ? '' : 'text-white'} hover:text-primary transition-colors hover`}
+              rel="noreferrer"
+            >
+              View in Github
+            </a>
+          </div>
+
+          <a
+            href={project.url}
+            target="_blank"
+            className={`${classes.dot} ${light ? '' : 'text-white'} hover:text-primary transition-colors hover`}
+            rel="noreferrer"
+          >
             Go to website
           </a>
         </div>

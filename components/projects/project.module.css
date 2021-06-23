@@ -2,7 +2,15 @@
   position: relative;
 }
 
-.dot::after {
+.dot::before {
   content: '';
-  position: absolute
+  position: absolute;
+  background-color: var(--background);
+  width: 0.4vw;
+  height: 0.4vw;
+  border-radius: 50%;
+  top: 55%;
+  left: -1.5vw;
+  transform: translateY(-50%);
+
 }
