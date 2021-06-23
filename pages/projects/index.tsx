@@ -42,8 +42,7 @@ const ProjectsPage: NextPage = () => {
 
   return (
     <main className="flex-auto">
-      <section className="grid place-items-center bg-prBg px-32">
-        <div className="mt-20"></div>
+      <section className="">
         {projects.map((project, index) => (
           <Project key={index} project={project} index={index} />
         ))}

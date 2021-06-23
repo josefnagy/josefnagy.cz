@@ -25,7 +25,17 @@ module.exports = {
       fontSize: {
         'header': ['10vw'],
         'menuHeader': '12vw',
-        'projectHeader': '50px'
+        'projectHeader': '4vw',
+        'prStats': '1.5vw',
+      },
+      spacing: {
+        'p4': '4vw',
+        'p5': '5vw',
+        'p6': '6vw',
+        'p7': '7vw',
+        'p8': '8vw',
+        'p9': '9vw',
+        'p10': '10vw'
       },
       lineHeight: {
         'heading': '11.5rem'
