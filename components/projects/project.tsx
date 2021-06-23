@@ -1,7 +1,10 @@
 import Image from 'next/image'
+import { useInView } from 'react-intersection-observer'
 
 import classes from './project.module.css'
+import burgerClasses from '../../components/ui/burger.module.css'
 import Magnetic from '../ui/magnetic'
+import { useEffect } from 'react'
 
 interface Props {
   project: {
@@ -17,12 +20,26 @@ interface Props {
 }
 
 const ProjectsPage: React.FC<Props> = ({ project, index }) => {
+  const [ref, inView, entry] = useInView({ threshold: 0.7 })
+
   const projectNumber = '0' + (index + 1)
   const light = (index + 1) % 2 > 0 ? true : false
 
+  useEffect(() => {
+    if (inView && !light) {
+      document.querySelector('#logo > path')?.classList.remove('light-bg')
+      document.querySelector('#logo > rect')?.classList.remove('light-bg')
+      document.querySelector('#menuBtn')?.classList.remove(burgerClasses.lightBg)
+    } else {
+      document.querySelector('#logo > path')?.classList.add('light-bg')
+      document.querySelector('#logo > rect')?.classList.add('light-bg')
+      document.querySelector('#menuBtn')?.classList.add(burgerClasses.lightBg)
+    }
+  }, [inView, light, entry])
+
   return (
     // article wrapper
-    <article className={`w-full antialiased py-p9 ${light ? 'bg-prBg' : ''}`}>
+    <article ref={ref} className={`w-full antialiased py-p9 ${light ? 'bg-prBg' : ''}`}>
       {/* content wrapper */}
       <div className="px-p7">
         <Magnetic selector="a" />

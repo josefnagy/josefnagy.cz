@@ -39,6 +39,10 @@ body {
   color: #191113
 }
 
+#logo, #menuBtn {
+  transition: all 0.5s;
+}
+
 #__next {
   @apply h-full;
 }
