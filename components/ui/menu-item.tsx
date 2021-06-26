@@ -36,7 +36,7 @@ const MenuItem: React.FC<Props> = ({ setShowMenu, setIsMenuOpened, img, children
               className="text-left"
             >
               <span className="text-black text-2xl inline-block pb-1 font-black uppercase font-heading">{children}</span>
-              <Image src={img} width={500} height={350} quality={100} />
+              <Image src={img} priority={true} loading={'eager'} width={500} height={350} quality={100} />
             </a>
           </Link>
         </motion.li>
