@@ -61,10 +61,6 @@ interface Waypoint {
 
 const ProjectsPage: NextPage = () => {
   useEffect(() => {
-    console.log('rendered')
-  })
-
-  useEffect(() => {
     document.querySelector('body')?.classList.add('light-bg')
     return () => {
       document.querySelector('body')?.classList.remove('light-bg')
@@ -73,7 +69,7 @@ const ProjectsPage: NextPage = () => {
 
   useEffect(() => {
     const logoInitials = document.querySelector('#logo > path') as SVGElement
-    const logoDot = document.querySelector('#logo > rect') as SVGElement
+    // const logoDot = document.querySelector('#logo > rect') as SVGElement
     const menuBtn = document.querySelector('#menuBtn > span') as HTMLButtonElement
 
     let articles: Array<Waypoint> = []
@@ -83,7 +79,7 @@ const ProjectsPage: NextPage = () => {
       if (e.deltaY > 0) {
         //if scrolling down, check if boundary of current article was crossed
         //if yes, then set new current
-        if (window.pageYOffset + 75 > currentArticle.bottomBoundary) {
+        if (window.pageYOffset + 50 > currentArticle.bottomBoundary) {
           currentArticle = articles[currentArticle.index + 1]
           switchLogo(currentArticle.dark)
         }
@@ -112,14 +108,14 @@ const ProjectsPage: NextPage = () => {
     function switchLogo(dark: boolean) {
       if (dark) {
         logoInitials.classList.remove('light-bg')
-        logoDot.classList.remove('light-bg')
+        // logoDot.classList.remove('light-bg')
         logoInitials.style.transition = 'all 500ms'
-        logoDot.style.transition = 'all 500ms'
+        // logoDot.style.transition = 'all 500ms'
         menuBtn.style.transition = 'all 500ms'
         document.querySelector('#menuBtn')?.classList.remove(classes.lightBg)
       } else {
         logoInitials.classList.add('light-bg')
-        logoDot.classList.add('light-bg')
+        // logoDot.classList.add('light-bg')
         document.querySelector('#menuBtn')?.classList.add(classes.lightBg)
       }
     }
@@ -156,6 +152,8 @@ const ProjectsPage: NextPage = () => {
 
     return () => {
       document.removeEventListener('wheel', handleWheel)
+      logoInitials.classList.remove('light-bg')
+      document.querySelector('#menuBtn')?.classList.remove(classes.lightBg)
     }
   }, [])
 
