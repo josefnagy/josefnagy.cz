@@ -84,17 +84,17 @@ const Menu: React.FC<Props> = ({ isMenuOpened, setIsMenuOpened }) => {
                     initial="from"
                     animate={animation}
                   >
-                    <MenuItem setShowMenu={setShowMenu} setIsMenuOpened={setIsMenuOpened} img="/images/site/menu/hero.png" url="/">
+                    <MenuItem setShowMenu={setShowMenu} setIsMenuOpened={setIsMenuOpened} img="/images/site/menu/main-page.png" url="/">
                       {' '}
-                      01. Home
+                      I. Home
                     </MenuItem>
-                    <MenuItem setShowMenu={setShowMenu} setIsMenuOpened={setIsMenuOpened} img="/images/site/menu/projects.png" url="/projects">
+                    <MenuItem setShowMenu={setShowMenu} setIsMenuOpened={setIsMenuOpened} img="/images/site/menu/projects-menu-img.png" url="/projects">
                       {' '}
-                      02. Projects
+                      II. Projects
                     </MenuItem>
                     <MenuItem setShowMenu={setShowMenu} setIsMenuOpened={setIsMenuOpened} img="/images/site/menu/contact.png" url="#contact">
                       {' '}
-                      03. Contact
+                      III. Contact
                     </MenuItem>
                   </motion.ul>
                 </nav>
