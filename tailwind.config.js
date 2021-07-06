@@ -35,7 +35,9 @@ module.exports = {
         'p7': '7vw',
         'p8': '8vw',
         'p9': '9vw',
-        'p10': '10vw'
+        'p10': '10vw',
+        'p30': '30vh'
+
       },
       lineHeight: {
         'heading': '11.5rem'

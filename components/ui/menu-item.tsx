@@ -33,10 +33,10 @@ const MenuItem: React.FC<Props> = ({ setShowMenu, setIsMenuOpened, img, children
               role="button"
               tabIndex={0}
               onKeyPress={() => handleMenuClick()}
-              className="text-left"
+              className="text-left w-full"
             >
               <span className="text-black text-2xl inline-block pb-1 font-black uppercase font-heading">{children}</span>
-              <Image src={img} priority={true} loading={'eager'} width={500} height={350} quality={100} />
+              <Image src={img} layout="responsive" loading="eager" width={500} height={350} quality={100} />
             </a>
           </Link>
         </motion.li>
