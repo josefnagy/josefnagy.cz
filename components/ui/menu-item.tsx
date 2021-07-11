@@ -24,7 +24,7 @@ const MenuItem: React.FC<Props> = ({ setShowMenu, setIsMenuOpened, img, children
   return (
     <>
       <Magnetic trY magnetic selector=".menu-item" threshold={20}>
-        <motion.li className="menu-item max-w-lg w-47 mb-24" variants={items}>
+        <motion.li className="menu-item max-w-lg w-47 p-1 mb-12 sm:mb-24" variants={items}>
           <Link href={url}>
             <a
               onClick={() => {
@@ -35,7 +35,7 @@ const MenuItem: React.FC<Props> = ({ setShowMenu, setIsMenuOpened, img, children
               onKeyPress={() => handleMenuClick()}
               className="text-left w-full"
             >
-              <span className="text-black text-2xl inline-block pb-1 font-black uppercase font-heading">{children}</span>
+              <span className="text-black text-md sm:text-2xl inline-block pb-1 sm:font-black uppercase font-heading">{children}</span>
               <Image src={img} layout="responsive" loading="eager" width={500} height={350} quality={100} />
             </a>
           </Link>

@@ -75,11 +75,11 @@ const Menu: React.FC<Props> = ({ isMenuOpened, setIsMenuOpened }) => {
             >
               Josef Nagy
             </motion.h2>
-            <div className="h-full pt-48">
+            <div className="h-full pt-32 sm:pt-48">
               <div className="">
                 <nav>
                   <motion.ul
-                    className="relative w-full max-w-screen-lg mx-auto flex justify-between flex-wrap"
+                    className="relative w-full max-w-screen-lg mx-auto flex justify-around sm:justify-between flex-wrap"
                     variants={list}
                     initial="from"
                     animate={animation}
