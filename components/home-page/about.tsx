@@ -51,10 +51,17 @@ const About: NextPage = () => {
 
   return (
     <>
-      <section className="grid place-items-center h-1/4 px-4" id="about">
-        <div className="w-2/3">
+      <section className="grid place-items-center lg:h-1/4 px-4" id="about">
+        <div className="xl:w-2/3">
           <Magnetic selector=".links">
-            <motion.p variants={container} ref={ref} initial="start" animate={animation} exit="exit" className="text-5xl font-thin text-center leading-tight">
+            <motion.p
+              variants={container}
+              ref={ref}
+              initial="start"
+              animate={animation}
+              exit="exit"
+              className="text-3xl lg:text-5xl font-thin text-center leading-tight"
+            >
               <motion.span variants={text} className="inline-block">
                 I am a conductor
               </motion.span>

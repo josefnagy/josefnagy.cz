@@ -31,7 +31,7 @@ const Projects: NextPage = () => {
 
   return (
     <>
-      <section className="transition-all duration-1000 grid place-items-center h-1/5" id="projects">
+      <section className="transition-all duration-1000 grid place-items-center my-32 lg:my-0 lg:h-1/5" id="projects">
         <div className="absolute transition-all duration-1000 w-full h-2/3  opacity-0 overflow-auto " ref={workcal}>
           <Image src="/images/projects/workcal.png" width={2000} height={1000} alt="" quality={100} />
         </div>

@@ -38,7 +38,7 @@ const text = {
 const Hero: NextPage = () => {
   return (
     <>
-      <section className="h-screen grid place-items-center uppercase px-4" id="hero">
+      <section className="h-1/3 xl:h-screen grid place-items-center uppercase px-4" id="hero">
         <motion.h1
           className="relative text-header header text-background leading-tight text-center font-extrabold tracking-wider"
           variants={hero}

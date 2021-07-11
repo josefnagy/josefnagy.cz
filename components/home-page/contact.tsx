@@ -104,12 +104,12 @@ const Contact: NextPage = () => {
   return (
     <>
       <section className="grid place-items-center h-auto px-4" id="contact">
-        <div className="w-2/3">
+        <div className="sm:w-3/4 md:w-2/3">
           <h3 className="uppercase mb-20">- Contact</h3>
-          <h2 className="text-7xl text-center">
+          <h2 className="text-5xl lg:text-7xl text-center">
             Let’s have some <span className="contact-header">fun.</span>
           </h2>
-          <p className="text-center text-dg -mt-2 text-xl">I can’t give You a ride in locomotive so don’t even try :-)</p>
+          <p className="text-center text-dg sm:-mt-2 text-md lg:text-xl ">I can’t give You a ride in locomotive so don’t even try :-)</p>
 
           <p
             className={
@@ -164,7 +164,7 @@ const Contact: NextPage = () => {
             <Magnetic selector=".contact-btn">
               <Button
                 status={requestStatus}
-                className="contact-btn transition duration-500ring ring-2 ring-primary px-4 pb-1 text-xl hover:bg-primary w-48 h-9"
+                className="contact-btn transition duration-500ring ring-2 ring-primary px-4 pb-1 text-xl hover:bg-primary w-full sm:w-48 h-9"
               >
                 Send Message
               </Button>
