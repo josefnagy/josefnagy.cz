@@ -13,7 +13,7 @@ const IndexPage: NextPage = () => {
       <Hero />
       <About />
       <Projects />
-      <LatestNews />
+      {/* <LatestNews /> */}
       <Contact />
       <Footer />
     </main>
