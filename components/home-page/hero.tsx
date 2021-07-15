@@ -38,9 +38,9 @@ const text = {
 const Hero: NextPage = () => {
   return (
     <>
-      <section className="h-1/3 xl:h-screen grid place-items-center uppercase px-4" id="hero">
+      <section className="h-1/6 xl:h-screen grid place-items-center uppercase px-4" id="hero">
         <motion.h1
-          className="relative text-header header text-background leading-tight text-center font-extrabold tracking-wider"
+          className="relative text-header header sm:place-self-center place-self-end text-background leading-tight text-center font-extrabold tracking-wider"
           variants={hero}
           initial="hidden"
           animate="visible"
@@ -57,6 +57,7 @@ const Hero: NextPage = () => {
             Welcome.
           </motion.span>
         </motion.h1>
+        {/* <img src="images/site/heroLogo.svg" alt="qq" className="opacity-30" /> */}
       </section>
     </>
   )

@@ -24,23 +24,23 @@ const ProjectsPage: React.FC<Props> = ({ project, index }) => {
     // article wrapper
     <article className={`w-full antialiased py-p9 ${light ? 'bg-prBg' : ''} art-${index + 1}`}>
       {/* content wrapper */}
-      <div className="test px-p7">
+      <div className="px-p7">
         <Magnetic selector="a" />
-        <div className="flex justify-between items-center normal-case text-prStats">
-          <div className={light ? '' : 'text-white'}>{projectNumber}</div>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center normal-case text-md lg:text-prStats">
+          <div className={` ${light ? 'text-black' : 'text-white'}`}>{projectNumber}</div>
           <div>
             <span className="text-primary mr-2">Role</span>
-            <span className={light ? '' : 'text-white'}>{project.role}</span>
+            <span className={light ? 'text-black' : 'text-white'}>{project.role}</span>
           </div>
           <div>
             <span className="text-primary mr-2">Launched</span>
-            <span className={light ? '' : 'text-white'}>{project.launched}</span>
+            <span className={light ? 'text-black' : 'text-white'}>{project.launched}</span>
           </div>
           <div className="">
             <a
               href={project.git}
               target="_blank"
-              className={`${classes.dot} ${light ? '' : 'text-white'} hover:text-primary transition-colors hover`}
+              className={`${classes.dot} ${light ? 'text-black' : 'text-white'} hover:text-primary transition-colors hover`}
               rel="noreferrer"
             >
               View in Github
@@ -50,16 +50,16 @@ const ProjectsPage: React.FC<Props> = ({ project, index }) => {
           <a
             href={project.url}
             target="_blank"
-            className={`${classes.dot} ${light ? '' : 'text-white'} hover:text-primary transition-colors hover`}
+            className={`${classes.dot} ${light ? 'text-black' : 'text-white'} hover:text-primary transition-colors hover`}
             rel="noreferrer"
           >
             Go to website
           </a>
         </div>
         <div className="mt-14 grid place-items-center mb-14">
-          <p className="font-project text-projectHeader leading-tight w-3/4">
+          <p className="font-project text-xl  md:text-projectHeader leading-tight w-3/4">
             <span className="italic text-primary">{project.name}</span>
-            <span className={light ? '' : 'text-white'}> - {project.desc}</span>
+            <span className={light ? 'text-black' : 'text-white'}> - {project.desc}</span>
           </p>
         </div>
         <div>

@@ -51,7 +51,7 @@ const About: NextPage = () => {
 
   return (
     <>
-      <section className="grid place-items-center lg:h-1/4 px-4" id="about">
+      <section className="grid place-items-center h-1/6 lg:h-1/6 px-4" id="about">
         <div className="xl:w-2/3">
           <Magnetic selector=".links">
             <motion.p
