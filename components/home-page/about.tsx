@@ -51,7 +51,7 @@ const About: NextPage = () => {
 
   return (
     <>
-      <section className="grid place-items-center my-32 lg-:my-0 lg:h-1/6 px-6 lg:px-4 " id="about">
+      <section className="grid place-items-center my-32 lg:my-64 px-6 lg:px-4 " id="about">
         <div className="xl:w-2/3">
           <Magnetic selector=".links">
             <motion.p
@@ -60,7 +60,7 @@ const About: NextPage = () => {
               initial="start"
               animate={animation}
               exit="exit"
-              className="text-3xl lg:text-5xl font-thin text-center leading-tight"
+              className="text-3xl lg:text-5xl font-thin text-center leading-tight lg:leading-normal"
             >
               <motion.span variants={text} className="inline-block">
                 I am a conductor
@@ -78,7 +78,7 @@ const About: NextPage = () => {
               </motion.span>
               &nbsp;
               <motion.span variants={text} className="inline-block">
-                and bunch of other stuff.{' '}
+                and last but not least, Asian cuisine.{' '}
               </motion.span>
               &nbsp;
               <motion.span variants={text} className="inline-block">
