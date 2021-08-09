@@ -27,8 +27,6 @@ const ProjectsPage: React.FC<Props> = ({ project, index }) => {
       vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 
       if (vw && vw > 375) {
-        console.log('normal')
-
         return (
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center normal-case text-md lg:text-prStats">
             <div className={` ${light ? 'text-black' : 'text-white'}`}>{projectNumber}</div>
@@ -62,8 +60,6 @@ const ProjectsPage: React.FC<Props> = ({ project, index }) => {
           </div>
         )
       } else {
-        console.log('mobile')
-
         return (
           <div className="flex flex-row justify-between normal-case text-md lg:text-prStats">
             <div>

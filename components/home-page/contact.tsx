@@ -164,7 +164,9 @@ const Contact: NextPage = () => {
             <Magnetic selector=".contact-btn">
               <Button
                 status={requestStatus}
-                className="contact-btn transition duration-500ring ring-2 ring-primary px-4 pb-1 text-xl hover:bg-primary w-full sm:w-48 h-9"
+                className={`contact-btn transition duration-500ring focus:outline-none ring-2 ring-primary px-4 pb-1 text-xl ${
+                  requestStatus !== 'success' && 'hover:bg-primary'
+                } w-full sm:w-48 h-9`}
               >
                 Send Message
               </Button>
