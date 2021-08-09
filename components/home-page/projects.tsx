@@ -53,7 +53,6 @@ interface Waypoint {
 const Projects: NextPage = () => {
   useEffect(() => {
     const logoInitials = document.querySelector('#logo > path') as SVGElement
-    // const logoDot = document.querySelector('#logo > rect') as SVGElement
     const menuBtn = document.querySelector('#menuBtn > span') as HTMLButtonElement
 
     let articles: Array<Waypoint> = []
