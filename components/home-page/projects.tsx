@@ -51,13 +51,6 @@ interface Waypoint {
 }
 
 const Projects: NextPage = () => {
-  // useEffect(() => {
-  //   document.querySelector('body')?.classList.add('light-bg')
-  //   return () => {
-  //     document.querySelector('body')?.classList.remove('light-bg')
-  //   }
-  // }, [])
-
   useEffect(() => {
     const logoInitials = document.querySelector('#logo > path') as SVGElement
     // const logoDot = document.querySelector('#logo > rect') as SVGElement
@@ -76,7 +69,6 @@ const Projects: NextPage = () => {
         if (e.deltaY > 0) {
           //if scrolling down, check if boundary of current article was crossed
           //if yes, then set new current
-
           if (window.pageYOffset + 100 > currentArticle.topBoundary) {
             switchLogo(currentArticle.dark)
             currentArticle = articles[currentArticle.index - 1]
@@ -92,31 +84,23 @@ const Projects: NextPage = () => {
 
     document.addEventListener('wheel', handleWheel)
 
-    // // check if its first load
-    // // if it is then get all projects on page and save it to articles
-    // // if its not then check which article is viewed
     if (Object.entries(articles).length === 0) {
       articles = getArtBoundaries()
     }
-    // console.log(articles)
 
     currentArticle = getCurrentArticle(window.pageYOffset, articles)
-
-    // if (Object.entries(currentArticle).length !== 0) {
-    //   switchLogo(currentArticle.dark)
-    // }
 
     function switchLogo(dark: boolean) {
       if (dark) {
         logoInitials.classList.remove('light-bg')
-        // logoDot.classList.remove('light-bg')
+
         logoInitials.style.transition = 'all 500ms'
-        // logoDot.style.transition = 'all 500ms'
+
         menuBtn.style.transition = 'all 500ms'
         document.querySelector('#menuBtn')?.classList.remove(classes.lightBg)
       } else {
         logoInitials.classList.add('light-bg')
-        // logoDot.classList.add('light-bg')
+
         document.querySelector('#menuBtn')?.classList.add(classes.lightBg)
       }
     }
@@ -132,8 +116,7 @@ const Projects: NextPage = () => {
 
     function getArtBoundaries() {
       const art = document.querySelectorAll('article')
-      // console.log(art[0].offsetTop)
-      // // tohle fixnout
+
       const wp = []
 
       for (let i = 0; i < art.length; i++) {
@@ -150,7 +133,6 @@ const Projects: NextPage = () => {
         }
         wp.push(waypoint)
       }
-      // console.log(wp)
 
       return wp
     }
