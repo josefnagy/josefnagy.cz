@@ -19,8 +19,8 @@ const projects = [
     desc: 'Nejlepší malíř v Moravskoslezkém kraji s více než 20-ti letou praxí ',
     role: 'Development & Design',
     launched: '2018',
-    git: 'https://github.com/josefnagy/calendar',
-    url: 'https://workcal.netlify.com',
+    git: 'https://github.com/josefnagy/aracolor',
+    url: 'https://aracolor.cz',
     img: '/images/projects/aracolor.png',
   },
   {
