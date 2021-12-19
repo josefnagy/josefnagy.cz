@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+// import Image from 'next/image'
 import Link from 'next/link'
 import Magnetic from './magnetic'
 
@@ -36,7 +36,8 @@ const MenuItem: React.FC<Props> = ({ setShowMenu, setIsMenuOpened, img, children
               className="text-left w-full"
             >
               <span className="text-black text-md sm:text-2xl inline-block pb-1 sm:font-black uppercase font-heading">{children}</span>
-              <Image src={img} layout="responsive" loading="eager" width={500} height={350} quality={100} />
+              {/* <Image src={img} layout="responsive" priority width={500} height={350} quality={100} /> */}
+              <img src={img} alt="qq" />
             </a>
           </Link>
         </motion.li>
